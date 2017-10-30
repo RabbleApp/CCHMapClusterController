@@ -274,12 +274,18 @@
 
 - (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated
 {
+    if (self.disableClustering) {
+        return;
+    }
     self.regionSpanBeforeChange = mapView.region.span;
     self.regionChanging = YES;
 }
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
+    if (self.disableClustering) {
+        return;
+    }
     self.regionChanging = NO;
     
     // Deselect all annotations when zooming in/out. Longitude delta will not change

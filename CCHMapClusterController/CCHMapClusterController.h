@@ -40,6 +40,9 @@
 /** Map view to display clustered annotations. */
 @property (nonatomic, readonly) MKMapView *mapView;
 
+/** Disable all actions from mapview delegates */
+@property (nonatomic) BOOL disableClustering;
+
 /** Multiplier to extend visible area that's included for clustering (default: 0.5). */
 @property (nonatomic) double marginFactor;
 /** Cell size in [points] (default: 60). */
